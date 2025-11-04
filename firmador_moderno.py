@@ -162,13 +162,12 @@ class FirmaController:
                 response.raise_for_status()
 
     def _limpiar_temp(self):
-        a=1
-        # for f in self.dir_temp.glob('*'):
-        #     try:
-        #         if f.is_file():
-        #             f.unlink()
-        #     except OSError as e:
-        #         print(f"Aviso: No se pudo borrar el archivo temporal {f}: {e}")
+        for f in self.dir_temp.glob('*'):
+            try:
+                if f.is_file():
+                    f.unlink()
+            except OSError as e:
+                print(f"Aviso: No se pudo borrar el archivo temporal {f}: {e}")
 
 
 class AppFirmador(tk.Tk):
